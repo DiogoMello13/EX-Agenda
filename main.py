@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect
 app = Flask('app')
 
 contacts = [
-  {'title': 'João da Silva' },
-  {'title': 'Maria Souza' },
+  {'name': 'João da Silva' },
+  {'name': 'Maria Souza' },
 ]
   
 
@@ -16,8 +16,8 @@ def principal():
   
 @app.route('/create', methods=['POST'])
 def create():
-  title = request.form.get('title')
-  contacts.append({'title': title})
+  name = request.form.get('name')
+  contacts.append({'name': name})
   return redirect('/')
 
 if __name__ == '__main__':
